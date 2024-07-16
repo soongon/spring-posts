@@ -31,4 +31,10 @@ public class PostRepository {
         System.out.println("잘 인서트 됬습니다.");
         return post;
     }
+
+    public Post updateLikesPlusOne(long postId) {
+        // postId 에 해당되는 글의 likes 의 수를 1 증가..
+        // postId 글의 조회해서 그 글을 리턴한다.
+        return new Post(122, "asdfsd", "sdfsdf", 1);
+    }
 }

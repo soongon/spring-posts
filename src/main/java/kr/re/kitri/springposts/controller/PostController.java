@@ -33,5 +33,10 @@ public class PostController {
         return postService.registerPost(post);
     }
 
+    @PatchMapping("/posts/{postId}/likes")
+    public Post doLike(@PathVariable long postId) {
+        return postService.updateLikesPlusOne(postId);
+    }
+
 
 }
