@@ -24,4 +24,11 @@ public class PostRepository {
     public Post selectPostById(long postId) {
         return new Post(postId, "테스트 제목", "테스트 바디", 0);
     }
+
+    public Post insertPost(Post post) {
+        // 실제 테이블에 인서트..
+        // insert into post values (post.getId(), post.getTitle(), post.getBody(), ..... );
+        System.out.println("잘 인서트 됬습니다.");
+        return post;
+    }
 }
