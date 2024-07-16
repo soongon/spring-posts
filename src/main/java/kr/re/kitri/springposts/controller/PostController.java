@@ -2,7 +2,7 @@ package kr.re.kitri.springposts.controller;
 
 import kr.re.kitri.springposts.model.Post;
 import kr.re.kitri.springposts.service.PostService;
-import org.springframework.beans.factory.annotation.Autowired;
+import kr.re.kitri.springposts.service.PostServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,7 +13,7 @@ public class PostController {
 
     private final PostService postService;
 
-    public PostController(PostService postService) {
+    public PostController(PostServiceImpl postService) {
         this.postService = postService;
     }
 
@@ -37,6 +37,5 @@ public class PostController {
     public Post doLike(@PathVariable long postId) {
         return postService.updateLikesPlusOne(postId);
     }
-
 
 }
