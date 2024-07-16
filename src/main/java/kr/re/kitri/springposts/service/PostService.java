@@ -21,6 +21,9 @@ public class PostService {
         return postRepository.selectAllPost();
     }
     // 글 상세보기 by ID
+    public Post viewPostById(long postId) {
+        return postRepository.selectPostById(postId);
+    }
 
     // 글 등록
 

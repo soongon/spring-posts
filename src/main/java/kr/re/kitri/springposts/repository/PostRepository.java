@@ -20,4 +20,8 @@ public class PostRepository {
         posts.add(new Post(3, "third post", "스프링 멋져요3", 16));
         return posts;
     }
+
+    public Post selectPostById(long postId) {
+        return new Post(postId, "테스트 제목", "테스트 바디", 0);
+    }
 }
