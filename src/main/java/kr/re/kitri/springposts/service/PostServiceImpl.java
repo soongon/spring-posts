@@ -2,6 +2,7 @@ package kr.re.kitri.springposts.service;
 
 import kr.re.kitri.springposts.model.Post;
 import kr.re.kitri.springposts.repository.PostRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
