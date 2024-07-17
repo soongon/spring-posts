@@ -13,6 +13,7 @@ public class PostRepository {
     // select * from post;
     public List<Post> selectAllPost() {
 
+
         // db에서 3개의 글을 가져와서 자바의 모델타입으로 변환하여 반환
         List<Post> posts = new ArrayList<Post>();
         posts.add(new Post(1, "first post", "스프링 멋져요", 0));
