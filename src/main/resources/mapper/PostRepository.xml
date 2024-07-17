@@ -11,4 +11,14 @@
                 likes
         FROM    post
     </select>
+    <select id="selectPostById"
+            resultType="kr.re.kitri.springposts.model.Post"
+            parameterType="long">
+        SELECT  id,
+                title,
+                body,
+                likes
+        FROM    post
+        WHERE   id = #{postId};
+    </select>
 </mapper>
