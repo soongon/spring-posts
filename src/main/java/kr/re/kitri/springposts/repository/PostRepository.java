@@ -13,6 +13,6 @@ public interface PostRepository {
 
     List<Post> selectAllPost();
     Post selectPostById(long postId);
-    Post insertPost(Post post);
-    Post updateLikesPlusOne(long postId);
+    void insertPost(Post post);
+    void updateLikesPlusOne(long postId);
 }
