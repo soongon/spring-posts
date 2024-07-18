@@ -4,6 +4,8 @@ import kr.re.kitri.springposts.model.Post;
 import kr.re.kitri.springposts.service.PostService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -23,9 +25,9 @@ public class PostController {
      * @return 모든 게시물 목록
      */
     @GetMapping("/posts")
-    public Iterable<Post> allPosts() {
+    public ResponseEntity<Iterable<Post>> allPosts() {
         log.debug("모든 게시물을 조회합니다.");
-        return postService.viewAllPosts();
+        return ResponseEntity.ok().body(postService.viewAllPosts());
     }
 
     /**
@@ -35,9 +37,9 @@ public class PostController {
      * @return 조회된 게시물
      */
     @GetMapping("/posts/{postId}")
-    public Post viewPostById(@PathVariable long postId) {
+    public ResponseEntity<Post> viewPostById(@PathVariable long postId) {
         log.debug("ID로 게시물을 조회합니다. ID: " + postId);
-        return postService.viewPostById(postId);
+        return ResponseEntity.ok().body(postService.viewPostById(postId));
     }
 
     /**
@@ -47,9 +49,9 @@ public class PostController {
      * @return 등록된 게시물
      */
     @PostMapping("/posts")
-    public Post addPost(@RequestBody Post post) {
+    public ResponseEntity<Post> addPost(@RequestBody Post post) {
         log.debug("새로운 게시물을 등록합니다. 제목: " + post.getTitle());
-        return postService.registerPost(post);
+        return ResponseEntity.status(201).body(postService.registerPost(post));
     }
 
     /**
@@ -58,8 +60,9 @@ public class PostController {
      * @param postId 좋아요를 추가할 게시물의 ID
      */
     @PatchMapping("/posts/{postId}/likes")
-    public void doLike(@PathVariable long postId) {
+    public ResponseEntity<Void> doLike(@PathVariable long postId) {
         log.debug("게시물에 좋아요를 추가합니다. ID: " + postId);
         postService.updateLikesPlusOne(postId);
+        return ResponseEntity.ok().build();
     }
 }
