@@ -22,7 +22,6 @@ public class PostServiceImpl implements PostService {
 
     // 전체글 보기
     public Iterable<Post> viewAllPosts() {
-        log.info("롬복 좋아요..");
         return postRepository.findAll();
     }
     // 글 상세보기 by ID

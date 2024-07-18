@@ -26,7 +26,7 @@ public class PostController {
      */
     @GetMapping("/posts")
     public ResponseEntity<Iterable<Post>> allPosts() {
-        log.debug("모든 게시물을 조회합니다.");
+        log.info("서비스 수행 시작 합니다.");
         return ResponseEntity.ok().body(postService.viewAllPosts());
     }
 
@@ -38,7 +38,7 @@ public class PostController {
      */
     @GetMapping("/posts/{postId}")
     public ResponseEntity<Post> viewPostById(@PathVariable long postId) {
-        log.debug("ID로 게시물을 조회합니다. ID: " + postId);
+        log.info("서비스 수행 시작 합니다.");
         return ResponseEntity.ok().body(postService.viewPostById(postId));
     }
 
@@ -50,7 +50,7 @@ public class PostController {
      */
     @PostMapping("/posts")
     public ResponseEntity<Post> addPost(@RequestBody Post post) {
-        log.debug("새로운 게시물을 등록합니다. 제목: " + post.getTitle());
+        log.info("서비스 수행 시작 합니다.");
         return ResponseEntity.status(201).body(postService.registerPost(post));
     }
 
@@ -61,7 +61,7 @@ public class PostController {
      */
     @PatchMapping("/posts/{postId}/likes")
     public ResponseEntity<Void> doLike(@PathVariable long postId) {
-        log.debug("게시물에 좋아요를 추가합니다. ID: " + postId);
+        log.info("서비스 수행 시작 합니다.");
         postService.updateLikesPlusOne(postId);
         return ResponseEntity.ok().build();
     }
