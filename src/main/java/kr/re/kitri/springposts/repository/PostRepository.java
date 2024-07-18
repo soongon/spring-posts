@@ -13,6 +13,6 @@ import java.util.Optional;
 public interface PostRepository extends CrudRepository<Post, Long> {
 
     @Modifying
-    @Query("update  post_ set likes = likes + 1 where id = :postId")
+    @Query("update  post set likes = likes + 1 where id = :postId")
     void increaseLikes(@Param("postId") long postId);
 }
